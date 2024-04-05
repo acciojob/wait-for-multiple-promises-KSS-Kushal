@@ -26,9 +26,15 @@ const third = () => {
 		}, time*1000);
 	})
 }
+
+outputHTML.innerHTML = `
+	<tr id="loading">
+	<td colspan ="2">Loading...</td>
+	</tr>
+`
 const currt = new Date();
 Promise.all([first(), sec(), third()]).then((data)=>{
-	console.log(data);
+	outputHTML.innerHTML = '';
 	const nowt = new Date();
 	data.forEach((v, i)=>{
 		outputHTML.innerHTML += `
